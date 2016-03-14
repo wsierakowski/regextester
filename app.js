@@ -74,7 +74,7 @@ const getQueryStringParams = () => {
 const getShareLink = () => {
   var link = location.protocol + '//' + location.host + location.pathname;
   link += "?intxt=" + encodeURIComponent(inTxt.value);
-  link += "&inrgx" + encodeURIComponent(inRgx.value);
+  link += "&inrgx=" + encodeURIComponent(inRgx.value);
   shareLink.value = link;
 }
 
