@@ -33,6 +33,11 @@ const runRx = () => {
       outExecVal += "iter " + idx + ": " + rxArray + " [idx:" + rxArray.index + 
         " next: " + regexp.lastIndex + "]\n";
       idx++;
+      
+      // break the loop to prevent infinite execution
+      // there is only one result
+      if (regexp.lastIndex === 0) break;
+      // fallback for all other cases that I'm yet to find
       if (idx > 100) break;
     }
     if (idx > 1) outExecVal += "iter " + idx + ": null";
@@ -57,7 +62,7 @@ const getQueryStringParams = () => {
     urlParams[decode(match[1])] = decode(match[2]);
   }
   
-  inTxt.value = urlParams["intx"] || inTxtValDefault;   
+  inTxt.value = urlParams["intxt"] || inTxtValDefault;   
   inRgx.value = urlParams["inrgx"] || inRgxValDefault;
   
   runRx();
